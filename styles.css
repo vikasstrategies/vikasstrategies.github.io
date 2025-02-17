@@ -1,49 +1,243 @@
-body, html {
+* {
     margin: 0;
     padding: 0;
-    width: 100%;
-    height: 100%;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(to right, #0062E6, #33AEFF); /* Trustworthy blue gradient */
-    font-family: Arial, sans-serif;
-    color: white;
-    text-align: center;
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+    position: relative;
+    overflow: hidden;
 }
 
 .container {
-    animation: fadeIn 2s;
+    text-align: center;
+    padding: 2rem;
+    z-index: 1;
+    animation: fadeIn 2s ease-out;
 }
 
 h1 {
-    font-size: 3em;
-    margin: 0.5em 0;
+    font-size: 3.5rem;
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 1rem;
+    letter-spacing: 2px;
+    color: #ffffff;
+    animation: slideDown 1s ease-out;
 }
 
-p {
-    font-size: 1.5em;
-    margin: 0.5em 0;
+.tagline {
+    font-size: 1.5rem;
+    color: #e0e7ff;
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+    animation: slideDown 1s ease-out 0.2s backwards;
 }
 
-.fade-in {
-    opacity: 0;
-    animation: fadeIn 2s forwards;
+.coming-soon {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 1.5rem;
+    animation: slideDown 1s ease-out 0.4s backwards;
 }
 
-.delay-1 {
-    animation-delay: 1s;
+.description {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #e0e7ff;
+    margin-bottom: 2rem;
+    animation: slideDown 1s ease-out 0.6s backwards;
 }
 
-.delay-2 {
-    animation-delay: 2s;
+.notify-btn {
+    background: #00ffd5;
+    border: none;
+    padding: 1rem 2.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    color: black;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: transform 0.2s ease;
 }
 
-.delay-3 {
-    animation-delay: 3s;
+.notify-btn:hover {
+    transform: scale(1.05);
+}
+
+/* Confetti particles - vibrant professional colors */
+.particle {
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    border-radius: 2px;
+    animation: float 12s infinite;
+    opacity: 0.6;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+.p1 { top: 10%; left: 10%; background: #4FD1C5; transform: rotate(15deg); }
+.p2 { top: 20%; right: 20%; background: #F6AD55; transform: rotate(45deg); }
+.p3 { bottom: 30%; left: 30%; background: #68D391; transform: rotate(-15deg); }
+.p4 { bottom: 15%; right: 15%; background: #63B3ED; transform: rotate(30deg); }
+.p5 { top: 40%; left: 50%; background: #FC8181; transform: rotate(-45deg); }
+.p6 { bottom: 40%; right: 35%; background: #B794F4; transform: rotate(60deg); }
+.p7 { top: 15%; right: 45%; background: #F687B3; transform: rotate(-30deg); }
+.p8 { bottom: 25%; left: 45%; background: #4FD1C5; transform: rotate(15deg); }
+
+/* Additional particles */
+.p9 { top: 35%; left: 15%; background: #4FD1C5; transform: rotate(25deg); }
+.p10 { top: 25%; right: 30%; background: #F6AD55; transform: rotate(-35deg); }
+.p11 { bottom: 45%; left: 25%; background: #68D391; transform: rotate(55deg); }
+.p12 { bottom: 35%; right: 40%; background: #63B3ED; transform: rotate(-25deg); }
+.p13 { top: 60%; left: 35%; background: #FC8181; transform: rotate(40deg); }
+.p14 { top: 45%; right: 15%; background: #B794F4; transform: rotate(-50deg); }
+.p15 { bottom: 20%; left: 40%; background: #F687B3; transform: rotate(35deg); }
+.p16 { top: 30%; left: 45%; background: #4FD1C5; transform: rotate(-45deg); }
+
+/* Animation Keyframes */
+@keyframes gradientBG {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
 }
 
 @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0) rotate(0);
+        opacity: 0.6;
+    }
+    50% {
+        transform: translateY(-15px) rotate(180deg);
+        opacity: 0.8;
+    }
+    100% {
+        transform: translateY(0) rotate(360deg);
+        opacity: 0.6;
+    }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .container {
+        padding: 1.5rem;
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    h1 {
+        font-size: 2.2rem;
+        margin-bottom: 0.8rem;
+    }
+    
+    .tagline {
+        font-size: 1.1rem;
+        margin-bottom: 1rem;
+    }
+
+    .coming-soon {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+    }
+    
+    .description {
+        font-size: 0.95rem;
+        line-height: 1.4;
+        margin-bottom: 1.5rem;
+        padding: 0 0.5rem;
+    }
+    
+    .particle {
+        width: 8px;
+        height: 8px;
+    }
+}
+
+/* Small mobile devices */
+@media (max-width: 480px) {
+    .container {
+        padding: 1rem;
+        width: 95%;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+        letter-spacing: 1px;
+    }
+    
+    .tagline {
+        font-size: 1rem;
+    }
+
+    .coming-soon {
+        font-size: 1.3rem;
+    }
+    
+    .description {
+        font-size: 0.9rem;
+        br {
+            display: none; /* Remove line breaks on very small screens */
+        }
+    }
+    
+    .particle {
+        width: 6px;
+        height: 6px;
+    }
+}
+
+/* Landscape orientation fixes */
+@media (max-height: 480px) and (orientation: landscape) {
+    .container {
+        padding: 1rem;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .tagline, .coming-soon {
+        margin-bottom: 0.5rem;
+    }
+
+    .description {
+        margin-bottom: 1rem;
+    }
+}
+
